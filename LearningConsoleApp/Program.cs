@@ -26,6 +26,8 @@ namespace LearningConsoleApp
             s.EyeColor = Color.Brown;
             s.School = "Oxford";
             Console.WriteLine("My new name is " + s.Name + " and I study at " + s.School);
+
+            Console.WriteLine(s.Age);
         }
     }
 
