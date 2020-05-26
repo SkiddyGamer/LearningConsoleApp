@@ -16,7 +16,7 @@ namespace LearningConsoleApp
             students[0].Age = 14;
             students[0].Grade = 8;
             students[0].EyeColor = Color.Blue;
-            students[0].School = "Stanford";
+            students[0].ChangeSchool("Stanford");
 
             students.Add(new Student());
             students[1].Name = "Tomass";
@@ -24,7 +24,7 @@ namespace LearningConsoleApp
             students[1].Age = 17;
             students[1].Grade = 10;
             students[1].EyeColor = Color.Brown;
-            students[1].School = "Oxford";
+            students[1].ChangeSchool("Oxford");
 
             students.Add(new Student());
             students[2].Name = "Jenifer";
@@ -39,8 +39,19 @@ namespace LearningConsoleApp
             students[3].Age = 15;
             students[3].Grade = 8;
             students[3].EyeColor = Color.Blue;
-            students[3].School = "Farmford";
+            students[3].ChangeSchool("Farmford");
 
+            for (int i = 0; i < 4; i++)
+            {
+                Console.WriteLine(students[i].Name + " studies at " + students[i].School);
+            }
+
+            Console.WriteLine("\n");
+
+            foreach(Student s in students)
+            {
+                Console.WriteLine(s.Name + " studies at " + s.School);
+            }
 
             Console.WriteLine(students[0].Name + " studies at " + students[0].School);
             Console.WriteLine(students[1].Name + " studies at " + students[1].School);
@@ -57,10 +68,22 @@ namespace LearningConsoleApp
         public int Age { get; set; }
         public int Grade { get; set; }
         public Color EyeColor { get; set; }
-        public string School { get; set; } = "Datorium";
+        public string School { get; private set; } = "Datorium";
         public Student()
         {
             Console.WriteLine("Hi, I am a new student with no name and I study at " + this.School);
+        }
+
+        public void ChangeSchool(string schoolName)
+        {
+            if(schoolName != "Datorium" && schoolName != "Stanford")
+            {
+                Console.WriteLine("School change is denied");
+            }
+            else
+            {
+                this.School = schoolName;
+            }
         }
     }
 }
